@@ -1,4 +1,4 @@
-package kr.geun;
+package kr.geun.o.hwp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

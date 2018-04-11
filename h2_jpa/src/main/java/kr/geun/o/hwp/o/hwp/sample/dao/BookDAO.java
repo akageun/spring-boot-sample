@@ -1,6 +1,6 @@
-package kr.geun.sample.dao;
+package kr.geun.o.hwp.o.hwp.sample.dao;
 
-import kr.geun.sample.entity.BookEntity;
+import kr.geun.o.hwp.o.hwp.sample.entity.BookEntity;
 import org.springframework.data.repository.CrudRepository;
 
 /**

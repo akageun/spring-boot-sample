@@ -1,4 +1,4 @@
-package kr.geun;
+package kr.geun.o.hwp.o.hwp.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

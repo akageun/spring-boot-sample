@@ -1,4 +1,4 @@
-package kr.geun.sample.entity;
+package kr.geun.o.hwp.o.hwp.sample.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

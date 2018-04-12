@@ -1,7 +1,7 @@
-package kr.geun.o.hwp.o.hwp.sample.controller;
+package kr.geun.o.hwp.sample.controller;
 
-import kr.geun.o.hwp.o.hwp.sample.dao.BookDAO;
-import kr.geun.o.hwp.o.hwp.sample.entity.BookEntity;
+import kr.geun.o.hwp.sample.dao.BookDAO;
+import kr.geun.o.hwp.sample.entity.BookEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

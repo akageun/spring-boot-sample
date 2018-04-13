@@ -6,5 +6,3 @@
 
 [REDIS-CACHE](https://github.com/akageun/spring_boot_sample/tree/master/redis-cache)
 
-
-(테스트 커밋)

@@ -36,7 +36,7 @@ public class WebController {
 	 */
 	@GetMapping("/book/{id}")
 	public BookEntity getDetail(@PathVariable Long id) {
-		return bookDAO.findOne(id);
+		return bookDAO.getOne(id);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class WebController {
 	@Transactional
 	@DeleteMapping("/book/{id}")
 	public String deleteBook(@PathVariable Long id) {
-		bookDAO.delete(id);
+		bookDAO.deleteById(id);
 		return "SUCCESS";
 	}
 }

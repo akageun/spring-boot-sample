@@ -1,12 +1,12 @@
 package kr.geun.o.hwp.sample.dao;
 
 import kr.geun.o.hwp.sample.entity.BookEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  *
- * @author hyeonggeunkim
+ * @author akageun
  */
-public interface BookDAO extends CrudRepository<BookEntity, Long> {
+public interface BookDAO extends JpaRepository<BookEntity, Long> {
 }

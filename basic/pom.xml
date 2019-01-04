@@ -11,8 +11,16 @@
         <groupId>kr.geun.o.hwp</groupId>
         <artifactId>parent-modules</artifactId>
         <version>0.0.1</version>
+        <relativePath>../</relativePath>
     </parent>
 
     <description>Spring boot Sample</description>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

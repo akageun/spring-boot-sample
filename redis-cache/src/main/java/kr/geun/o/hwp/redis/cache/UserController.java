@@ -24,7 +24,7 @@ public class UserController {
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
 	public Book getUser(@PathVariable String userId) {
 		LOG.info("Getting user with ID {}.", userId);
-		return userRepository.findOne(Long.valueOf(userId));
+		return userRepository.getOne(Long.valueOf(userId));
 	}
 
 	@CachePut(value = "users", key = "#book.id")
@@ -38,6 +38,6 @@ public class UserController {
 	@DeleteMapping("/{userId}")
 	public void deleteUserByID(@PathVariable Long userId) {
 		LOG.info("deleting person with id {}", userId);
-		userRepository.delete(userId);
+		userRepository.deleteById(userId);
 	}
 }

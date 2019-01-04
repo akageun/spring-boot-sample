@@ -56,17 +56,4 @@ public class RedisConfig {
 
 		return redisTemplate;
 	}
-
-	/**
-	 * Cache Manager
-	 *
-	 * @param redisTemplate
-	 * @return
-	 */
-	@Bean
-	public CacheManager cacheManager(RedisTemplate redisTemplate) {
-		RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
-		cacheManager.setDefaultExpiration(300); // Number of seconds before expiration. Defaults to unlimited (0)
-		return cacheManager;
-	}
 }

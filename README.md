@@ -1,8 +1,11 @@
 # Spring Boot Sample Project
 
-[BASIC PROJECT](https://github.com/akageun/spring_boot_sample/tree/master/basic)
+[BASIC PROJECT](basic)
 
-[H2_JPA](https://github.com/akageun/spring_boot_sample/tree/master/h2_jpa)
+[H2_JPA](h2_jpa)
 
-[REDIS-CACHE](https://github.com/akageun/spring_boot_sample/tree/master/redis-cache)
+[REDIS-CACHE](redis-cache)
 
+[STUDY-AOP](study-aop)
+
+[JSP-SITEMESH3](jsp-sitemesh)

@@ -5,7 +5,7 @@
 
     <artifactId>h2_jpa</artifactId>
     <packaging>war</packaging>
-    <name>spring-basic</name>
+    <name>h2_jpa</name>
 
     <parent>
         <groupId>kr.geun.o.hwp</groupId>

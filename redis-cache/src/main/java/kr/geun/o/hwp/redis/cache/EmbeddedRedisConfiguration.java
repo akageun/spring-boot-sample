@@ -1,7 +1,9 @@
 package kr.geun.o.hwp.redis.cache;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 import redis.embedded.RedisServer;
 
 import javax.annotation.PostConstruct;
@@ -13,8 +15,8 @@ import java.io.IOException;
  *
  * @author akageun
  */
-@Component
-public class EmbeddedRedisConfiguration {
+@Configuration
+public class EmbeddedRedisConfiguration implements InitializingBean, DisposableBean {
 
 	@Value("${spring.redis.port}")
 	private int redisPort;
@@ -22,23 +24,22 @@ public class EmbeddedRedisConfiguration {
 	private RedisServer redisServer;
 
 	/**
-	 * Redis Start
-	 *
-	 * @throws IOException
-	 */
-	@PostConstruct
-	public void init() throws IOException {
-		redisServer = new RedisServer(redisPort);
-		redisServer.start(); //Redis Start
-	}
-
-	/**
 	 * Redis Stop
 	 *
 	 */
-	@PreDestroy
+	@Override
 	public void destroy() {
-		redisServer.stop(); //Redis Stop
+		if (redisServer != null) {
+			redisServer.stop(); //Redis Stop
+		}
 	}
 
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		redisServer = RedisServer.builder()
+			.port(redisPort)
+			.setting("maxmemory 128M") //maxheap 128M
+			.build();
+		redisServer.start(); //Redis Start
+	}
 }

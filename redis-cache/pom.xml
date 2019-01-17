@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<artifactId>redis-cache</artifactId>
-	<packaging>war</packaging>
-	<name>spring-basic</name>
+    <artifactId>redis-cache</artifactId>
+    <packaging>war</packaging>
+    <name>redis-cache</name>
 
-	<parent>
-		<groupId>kr.geun.o.hwp</groupId>
-		<artifactId>parent-modules</artifactId>
-		<version>0.0.1</version>
-		<relativePath>../</relativePath>
-	</parent>
+    <parent>
+        <groupId>kr.geun.o.hwp</groupId>
+        <artifactId>parent-modules</artifactId>
+        <version>0.0.1</version>
+        <relativePath>../</relativePath>
+    </parent>
 
-	<description>Spring boot Sample</description>
+    <description>Spring boot Sample</description>
 
-	<dependencies>
-		<!-- jpa -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<!-- h2 database -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
+    <dependencies>
+        <!-- jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- h2 database -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
 
-		<!-- embedded-redis -->
-		<dependency>
-			<groupId>com.github.kstyrc</groupId>
-			<artifactId>embedded-redis</artifactId>
-			<version>0.6</version>
-		</dependency>
+        <!-- embedded-redis -->
+        <dependency>
+            <groupId>it.ozimov</groupId>
+            <artifactId>embedded-redis</artifactId>
+            <version>0.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>

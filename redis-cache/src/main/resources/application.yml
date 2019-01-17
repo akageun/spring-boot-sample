@@ -30,3 +30,6 @@ spring:
         web-allow-others: false
   cache:
     type: redis
+
+server:
+  port: 9998

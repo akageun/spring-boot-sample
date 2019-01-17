@@ -1,13 +1,17 @@
 package kr.geun.o.hwp.redis.cache;
 
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
@@ -16,6 +20,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author akageun
  */
 @Configuration
+@EnableRedisRepositories
 public class RedisConfig {
 
 	@Value("${spring.redis.host}")
@@ -27,19 +32,23 @@ public class RedisConfig {
 	@Value("${spring.redis.database}")
 	private int redisDatabase;
 
-	/**
-	 * Factory
-	 *
-	 * @return
-	 */
+//	@Bean
+//	public GenericObjectPoolConfig genericObjectPoolConfig() {
+//		GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
+//		return genericObjectPoolConfig;
+//	}
+
 	@Bean
-	public JedisConnectionFactory jedisConnectionFactory() {
-		JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-		jedisConnectionFactory.setHostName(redisHost);
-		jedisConnectionFactory.setPort(redisPort);
-		jedisConnectionFactory.setDatabase(redisDatabase);
-		jedisConnectionFactory.setUsePool(true);
-		return jedisConnectionFactory;
+	//public LettuceConnectionFactory redisConnectionFactory(GenericObjectPoolConfig genericObjectPoolConfig) {
+	public LettuceConnectionFactory redisConnectionFactory() {
+		RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisHost, redisPort);
+		//r.setPassword(RedisPassword.of(password));
+
+		LettuceClientConfiguration lettuceClientConfiguration = LettucePoolingClientConfiguration.builder()
+			//.commandTimeout(Duration.ofMillis(6000))
+			//.poolConfig(genericObjectPoolConfig)
+			.build();
+		return new LettuceConnectionFactory(redisStandaloneConfiguration, lettuceClientConfiguration);
 	}
 
 	/**
@@ -51,7 +60,10 @@ public class RedisConfig {
 	public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
-		redisTemplate.setValueSerializer(new StringRedisSerializer());
+		redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+		redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
+		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+		redisTemplate.setEnableTransactionSupport(true);
 		redisTemplate.setConnectionFactory(redisConnectionFactory);
 
 		return redisTemplate;

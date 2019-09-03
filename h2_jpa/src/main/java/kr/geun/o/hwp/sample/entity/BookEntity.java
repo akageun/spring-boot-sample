@@ -11,52 +11,53 @@ import java.io.Serializable;
 @Entity
 @Table(name = "book")
 public class BookEntity implements Serializable {
-	private static final long serialVersionUID = 810457109758530244L;
+    private static final long serialVersionUID = 810457109758530244L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(length = 50)
-	private String name;
-	private int price;
+    @Column(length = 50)
+    private String name;
 
-	@Lob
-	@Column
-	private String desc;
+    private int price;
 
-	public BookEntity() {
-	}
+    @Lob
+    @Column
+    private String desc;
 
-	public Long getId() {
-		return id;
-	}
+    public BookEntity() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getPrice() {
-		return price;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
+    public int getPrice() {
+        return price;
+    }
 
-	public String getDesc() {
-		return desc;
-	}
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 }

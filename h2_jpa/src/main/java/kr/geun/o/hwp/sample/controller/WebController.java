@@ -1,6 +1,6 @@
 package kr.geun.o.hwp.sample.controller;
 
-import kr.geun.o.hwp.sample.dao.BookDAO;
+import kr.geun.o.hwp.sample.repo.BookRepo;
 import kr.geun.o.hwp.sample.entity.BookEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 public class WebController {
 
 	@Autowired
-	private BookDAO bookDAO;
+	private BookRepo bookRepo;
 
 	/**
 	 * Get All Book Data
@@ -25,7 +25,7 @@ public class WebController {
 	 */
 	@GetMapping("/book/list")
 	public Iterable<BookEntity> getList() {
-		return bookDAO.findAll();
+		return bookRepo.findAll();
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class WebController {
 	 */
 	@GetMapping("/book/{id}")
 	public BookEntity getDetail(@PathVariable Long id) {
-		return bookDAO.getOne(id);
+		return bookRepo.getOne(id);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class WebController {
 	@Transactional
 	@PostMapping("/book")
 	public BookEntity addBook(BookEntity param) {
-		return bookDAO.save(param);
+		return bookRepo.save(param);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class WebController {
 	@Transactional
 	@PutMapping("/book/{id}")
 	public BookEntity modifyBook(BookEntity param) {
-		return bookDAO.save(param);
+		return bookRepo.save(param);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class WebController {
 	@Transactional
 	@DeleteMapping("/book/{id}")
 	public String deleteBook(@PathVariable Long id) {
-		bookDAO.deleteById(id);
+		bookRepo.deleteById(id);
 		return "SUCCESS";
 	}
 }

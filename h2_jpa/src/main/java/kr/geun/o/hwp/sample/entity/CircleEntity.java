@@ -1,5 +1,6 @@
 package kr.geun.o.hwp.sample.entity;
 
+import kr.geun.o.hwp.sample.convert.ColorTypeConverter;
 import kr.geun.o.hwp.sample.type.ColorType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,10 @@ public class CircleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
+//    private ColorType colorType;
+
+    @Convert(converter = ColorTypeConverter.class)
     private ColorType colorType;
 
     private int size;

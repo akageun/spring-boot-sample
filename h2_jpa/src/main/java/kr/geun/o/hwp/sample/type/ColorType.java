@@ -10,19 +10,26 @@ import lombok.Getter;
  */
 @Getter
 public enum ColorType {
-    GREY(142, 142, 147),
-    RED(255, 59, 48),
-    GREEN(76, 217, 100),
-    PURPLE(88, 86, 214),
-    LIGHTBLUE(52, 170, 220);
+    GREY("142, 142, 147"),
+    RED("255, 59, 48"),
+    GREEN("76, 217, 100"),
+    PURPLE("88, 86, 214"),
+    LIGHTBLUE("52, 170, 220");
 
-    private int red;
-    private int green;
-    private int blue;
+    private String rgb;
 
-    ColorType(int red, int green, int blue) {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+    ColorType(String rgb) {
+        this.rgb = rgb;
     }
+
+    public static ColorType fromCode(String dbData) {
+        for (ColorType value : ColorType.values()) {
+            if (value.getRgb().equals(dbData)) {
+                return value;
+            }
+        }
+
+        return null;
+    }
+
 }

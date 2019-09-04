@@ -17,6 +17,16 @@
 
     <description>Spring Study Project aka Hello World Project</description>
 
+    <modules>
+        <module>basic</module>
+        <module>h2_jpa</module>
+        <module>jsp-sitemesh</module>
+        <module>mybatis-multi-db</module>
+        <module>redis-cache</module>
+        <module>study-aop</module>
+        <module>thymeleaf-web</module>
+    </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

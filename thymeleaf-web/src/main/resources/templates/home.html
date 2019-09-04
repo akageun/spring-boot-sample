@@ -12,5 +12,13 @@
     <hr>
     <h1 style="color: red;" th:text="${#messages.msg('hello2')}"></h1> <!-- 없을 경우 : ??hello2_ko?? 와 같이 나옴 -->
     <h1 style="color: red;" th:text="${#messages.msgOrNull('hello2')}"></h1> <!-- 없을 경우 : 아무것도 안찍힘 -->
+
+    <script th:inline="javascript">
+        const hello = [[#{hello}]];
+        console.log(hello);
+
+        const hello2 = "[(#{hello})]";
+        console.log(hello2);
+    </script>
 </body>
 </html>

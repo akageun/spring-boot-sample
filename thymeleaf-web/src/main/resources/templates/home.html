@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="#{hello}"></h1>
+    <hr>
+    <h1 style="color: red;" th:text="${#messages.msg('hello')}"></h1>
+    <h1 style="color: red;" th:text="${#messages.msgOrNull('hello')}"></h1>
+    <hr>
+    <h1 style="color: red;" th:text="${#messages.msg('hello2')}"></h1> <!-- 없을 경우 : ??hello2_ko?? 와 같이 나옴 -->
+    <h1 style="color: red;" th:text="${#messages.msgOrNull('hello2')}"></h1> <!-- 없을 경우 : 아무것도 안찍힘 -->
+</body>
+</html>

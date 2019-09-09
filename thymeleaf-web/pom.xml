@@ -14,7 +14,7 @@
         <relativePath>../</relativePath>
     </parent>
 
-    <description>Spring AOP Study Project</description>
+    <description>Spring Thymeleaf Study Project</description>
 
     <dependencies>
         <dependency>

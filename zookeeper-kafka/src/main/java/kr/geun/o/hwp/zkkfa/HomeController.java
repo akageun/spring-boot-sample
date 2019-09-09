@@ -30,7 +30,14 @@ public class HomeController {
 
     @PostMapping("/save")
     public String save() {
-        kafkaTemplate.send(TOPIC, TmpKafkaModel.builder().uuid(UUID.randomUUID().toString()).now(new Date()).build());
+
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < 1000; i++) {
+            sb.append(UUID.randomUUID().toString());
+        }
+
+        kafkaTemplate.send(TOPIC, TmpKafkaModel.builder().uuid(sb.toString()).now(new Date()).build());
+
         return "OK";
     }
 

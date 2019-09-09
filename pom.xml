@@ -25,6 +25,7 @@
         <module>redis-cache</module>
         <module>study-aop</module>
         <module>thymeleaf-web</module>
+        <module>zookeeper-kafka</module>
     </modules>
 
     <properties>

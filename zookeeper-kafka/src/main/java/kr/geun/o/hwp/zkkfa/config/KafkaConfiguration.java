@@ -51,6 +51,8 @@ public class KafkaConfiguration {
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class); // key serialize 지정
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class); // value serialize 지정
 
+        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "gzip");
+
         return props;
     }
 

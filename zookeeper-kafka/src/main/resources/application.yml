@@ -1,0 +1,7 @@
+kafka:
+    producer:
+        bootstrapServers: localhost:9092
+        retries: 0
+        batchSize: 4096
+        lingerMs: 1
+        bufferMemory: 40960

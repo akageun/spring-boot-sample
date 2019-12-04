@@ -1,0 +1,9 @@
+spring:
+    data:
+        mongodb:
+            username: testUser
+            password: q1w2e3r4
+            authentication-database: test_db
+            database: test_db
+            host: localhost
+            port: 27017

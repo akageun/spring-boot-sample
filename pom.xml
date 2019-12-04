@@ -26,6 +26,7 @@
         <module>study-aop</module>
         <module>thymeleaf-web</module>
         <module>zookeeper-kafka</module>
+        <module>mongodb</module>
     </modules>
 
     <properties>

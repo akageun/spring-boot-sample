@@ -21,11 +21,10 @@ public class HellomongoApplication {
     @Bean
     public ApplicationRunner applicationRunner() {
         return args -> {
-            TestCollections account = new TestCollections();
-            account.setEmail("aaa@bbb");
-            account.setUsername("aaa");
-
-            mongoTemplate.insert(account);
+            mongoTemplate.insert(TestCollections.builder()
+                .email("asdf@ghjk.com")
+                .username("asdf")
+                .build());
         };
     }
 }

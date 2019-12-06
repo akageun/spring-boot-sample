@@ -1,9 +1,6 @@
 package kr.geun.o.hwp.hellomongo;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,6 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Document(collection = "new_collections")
+@ToString
 public class TestCollections {
 
     @Id

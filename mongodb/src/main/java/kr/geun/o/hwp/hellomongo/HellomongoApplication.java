@@ -18,13 +18,13 @@ public class HellomongoApplication {
     private MongoTemplate mongoTemplate;
 
 
-    @Bean
-    public ApplicationRunner applicationRunner() {
-        return args -> {
-            mongoTemplate.insert(TestCollections.builder()
-                .email("asdf@ghjk.com")
-                .username("asdf")
-                .build());
-        };
-    }
+//    @Bean
+//    public ApplicationRunner applicationRunner() {
+//        return args -> {
+//            mongoTemplate.insert(TestCollections.builder()
+//                .email("asdf@ghjk.com")
+//                .username("asdf")
+//                .build());
+//        };
+//    }
 }
